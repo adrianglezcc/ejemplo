@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica 1 - SUCESIÓN DE FIBONACCI</title>
+</head>
+ 
+<body>
+
+    <p id="demo">Practica 1 - SUCESIÓN DE FIBONACCI</p>
+    <p id="demo">Alumno: Gonzalez Calderon Luis Adrian </p>
+ 
+    <script>
+        var numero; 
+
+    function fibonacci(numero)
+    {
+        let numeros=[0,1];
+        for (let i = 2; i < numero; i++) {
+            numeros[i] = numeros[i - 2] + numeros[i - 1];
+    
+        }
+        return numeros;
+    }
+ 
+    document.write(fibonacci(5));
+    </script>
+ 
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica 3 - FORMULARIO</title>
+    </head>
+<body>
+    <p id="demo1">Practica 3 - FORMULARIO</p>
+    <p id="demo1">Alumno: Gonzalez Calderon Luis Adrian </p>
+ 
+<h2>INGRESA TUS DATOS</h2>
+NOMBRE <input type=text id=n><br>
+CIUDAD <input type=text id=c><br>
+EDAD   <input type=text id=e><br>
+COMIDA <input type=text id=f><br>
+MUSICA <input type=text id=m><br>
+
+<button onClick=guardar()>Guardar</button>
+<button onClick=imprimir()>Imprimir</button>
+<p id="demo"></p>
+
+<script>
+class Personas{
+    set(n,c,e,f,m){
+    this.nombre=n;
+    this.ciudad=c;
+    this.edad=e;
+    this.comida=f;
+    this.musica=m;
+    }
+    get(){
+    return  `La persona se llama ${this.nombre}, vive en ${this.ciudad}, su edad es ${this.edad}, le gusta comer ${this.comida} y le gusta escuchar o bailar ${this.musica}`;
+    }
+ 
+}
+var janet=null;
+var persona=new Array(1000);
+var contador=0;
+
+function guardar(){ //beans
+let n=document.getElementById("n").value;
+let c=document.getElementById("c").value;
+let e=document.getElementById("e").value;
+let f=document.getElementById("f").value;
+let m=document.getElementById("m").value;
+persona[contador] = new Personas();
+persona[contador].set(n,c,e,f,m);
+contador++;
+document.getElementById("n").value="";
+document.getElementById("c").value="";
+document.getElementById("e").value="";
+document.getElementById("f").value="";
+document.getElementById("m").value="";
+}
+
+function imprimir(){
+let salida="";
+for(let i=0;i<contador;i++)
+salida+=persona[i].get()+"<br>";
+
+document.getElementById("demo").innerHTML=salida
+}
+
+
+</script>
+
+</body>
